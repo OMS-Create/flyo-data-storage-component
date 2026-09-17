@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <!-- Google Fonts: Raleway (400, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Fylo data storage component</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="component-container">
+    <!-- Brand / Navigation Card -->
+    <section class="card brand-card">
+      <img src="./images/logo.svg" alt="Fylo logo" class="logo">
+      
+      <div class="action-group" role="group" aria-label="Storage Actions">
+        <button class="action-btn" type="button" aria-label="Document storage">
+          <img src="./images/icon-document.svg" alt="" aria-hidden="true">
+        </button>
+        <button class="action-btn" type="button" aria-label="Folder details">
+          <img src="./images/icon-folder.svg" alt="" aria-hidden="true">
+        </button>
+        <button class="action-btn" type="button" aria-label="Upload files">
+          <img src="./images/icon-upload.svg" alt="" aria-hidden="true">
+        </button>
+      </div>
+    </section>
+
+    <!-- Storage Progress Card -->
+    <section class="card storage-card">
+      <p class="storage-status">
+        You’ve used <strong>815 GB</strong> of your storage
+      </p>
+
+      <div class="progress-bar" role="progressbar" aria-valuenow="815" aria-valuemin="0" aria-valuemax="1000" aria-label="Storage space used">
+        <div class="progress-fill">
+          <span class="progress-indicator"></span>
+        </div>
+      </div>
+
+      <div class="storage-range">
+        <span>0 GB</span>
+        <span>1000 GB</span>
+      </div>
+
+      <div class="remaining-badge">
+        <span class="amount">185</span>
+        <span class="unit">GB Left</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
+    Coded by <a href="#">Olamiji Michael</a>.
+  </footer>
+</body>
+</html>
