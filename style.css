@@ -10,10 +10,9 @@
 
   /* Typography */
   --ff-base: 'Raleway', sans-serif;
-  --fw-regular: 400;
   --fw-bold: 700;
 
-  /* Custom Properties & Centralized Values */
+  /* Centralized Custom Properties */
   --card-shadow: 0 0.9375rem 1.875rem rgba(0, 0, 0, 0.25);
   --track-bg: rgba(12, 18, 44, 0.5);
 }
@@ -24,15 +23,14 @@
   padding: 0;
 }
 
-/* BASE STYLES (MOBILE-FIRST) */
+/* BASE STYLES */
 
 body {
   font-family: var(--ff-base);
-  /* Increased base font size for better visibility */
-  font-size: clamp(0.9375rem, 1.2vw + 0.5rem, 1rem);
+  font-size: clamp(0.8125rem, 1vw + 0.5rem, 0.875rem);
   color: var(--clr-blue-200);
   background-color: var(--clr-blue-950);
-  background-image: url('./images/bg-desktop.png');
+  background-image: url('./images/bg-mobile.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -43,23 +41,20 @@ body {
   padding-inline: 1.5rem;
 }
 
-/* MAIN LAYOUT CONTAINER */
+/* MAIN CONTAINER */
 
 .component-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  /* Increased maximum width for mobile/tablet screens */
-  width: min(100%, 28rem);
+  gap: 1rem;
+  width: min(100%, 22.5rem);
   margin-block: auto;
 }
 
-/* CARDS COMMON STYLES */
-
 .card {
   background-color: var(--clr-blue-850);
-  padding: clamp(2.5rem, 6vw, 3rem);
-  border-radius: 0.75rem;
+  padding: clamp(2rem, 5vw, 2.5rem);
+  border-radius: 0.625rem;
   box-shadow: var(--card-shadow);
 }
 
@@ -67,27 +62,25 @@ body {
 
 .brand-card {
   border-top-right-radius: 6.25rem;
-  padding-inline-end: clamp(3.5rem, 9vw, 5rem);
+  padding-inline-end: clamp(3rem, 8vw, 4rem);
 }
 
 .logo {
   display: block;
   margin-block-end: 2rem;
-  transform: scale(1.1);
-  transform-origin: left center;
 }
 
 .action-group {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
   align-items: center;
 }
 
 .action-btn {
   background-color: var(--clr-blue-950);
   border: none;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 0.625rem;
   display: flex;
   align-items: center;
@@ -108,12 +101,8 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
-  margin-block-end: 3rem; /* Space for mobile floating badge */
-}
-
-.storage-status {
-  color: var(--clr-blue-200);
+  gap: 1rem;
+  margin-block-end: 2.5rem;
 }
 
 .storage-status strong {
@@ -121,43 +110,47 @@ body {
   font-weight: var(--fw-bold);
 }
 
-/* PROGRESS BAR */
+/* NATIVE PROGRESS ELEMENT STYLING */
 
-.progress {
-  background-color: var(--clr-blue-950);
-  border-radius: 0.625rem;
-  padding: 0.1875rem;
-  height: 1.5rem; /* Taller progress bar */
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
+  height: 1.25rem;
+  border: none;
+  border-radius: 0.625rem;
+  background-color: var(--track-bg);
+  overflow: hidden;
 }
 
-.progress-fill {
-  width: 70%;
+/* WebKit Track */
+progress::-webkit-progress-bar {
+  background-color: var(--track-bg);
+  border-radius: 0.625rem;
+}
+
+/* WebKit Fill Bar */
+progress::-webkit-progress-value {
   background: linear-gradient(to right, var(--clr-gradient-start), var(--clr-gradient-end));
-  height: 100%;
-  border-radius: 0.5rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-inline-end: 0.125rem;
+  border-radius: 0.625rem;
 }
 
-.progress-indicator {
-  width: 0.75rem;
-  height: 0.75rem;
-  background-color: var(--clr-white);
-  border-radius: 50%;
+/* Mozilla Fill Bar */
+progress::-moz-progress-bar {
+  background: linear-gradient(to right, var(--clr-gradient-start), var(--clr-gradient-end));
+  border-radius: 0.625rem;
 }
 
 .storage-range {
   display: flex;
   justify-content: space-between;
   font-weight: var(--fw-bold);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--clr-blue-200);
 }
 
-/* FLOATING REMAINING BADGE */
+/* FLOATING BADGE */
 
 .remaining-badge {
   background-color: var(--clr-white);
@@ -165,11 +158,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1.125rem 1.75rem;
+  padding: 1rem 1.5rem;
   border-radius: 0.625rem;
   font-weight: var(--fw-bold);
   position: absolute;
-  bottom: -2.75rem;
+  bottom: -2.5rem;
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -177,40 +170,38 @@ body {
 }
 
 .remaining-badge .amount {
-  font-size: 2.75rem;
+  font-size: 2.5rem;
   color: var(--clr-blue-950);
   line-height: 1;
 }
 
 .remaining-badge .unit {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.0625rem;
 }
 
-/* FOOTER */
+/* ATTRIBUTION FOOTER */
 
 .attribution {
-  font-size: 0.9375rem;
-  font-weight: 500;
+  font-size: 0.6875rem;
   text-align: center;
-  padding-block: 1.75rem;
+  padding-block: 1.25rem;
   color: var(--clr-blue-200);
 }
 
 .attribution a {
   color: var(--clr-gradient-start);
   text-decoration: none;
-  font-weight: var(--fw-bold);
 }
 
 .attribution a:hover {
   text-decoration: underline;
 }
 
-/* DESKTOP RESPONSIVE ENHANCEMENTS */
+/* DESKTOP BREAKPOINT */
 
-@media (min-width: 60em) { /* 960px */
+@media (min-width: 60em) {
   body {
     background-image: url('./images/bg-desktop.png');
     background-position: bottom center;
@@ -220,24 +211,22 @@ body {
   .component-container {
     flex-direction: row;
     align-items: flex-end;
-    /* Expanded max-width for desktop view */
-    width: min(100%, 65rem);
-    gap: 2rem;
+    width: min(100%, 57.5rem);
+    gap: 1.875rem;
   }
 
   .brand-card {
-    flex: 1 0 24rem;
+    flex: 1 0 21.875rem;
   }
 
   .storage-card {
-    flex: 2 0 38rem;
+    flex: 2 0 33.75rem;
     margin-block-end: 0;
-    padding-block-end: 2.75rem;
+    padding-block-end: 2.5rem;
   }
 
-  /* Desktop Speech Bubble Badge Position */
   .remaining-badge {
-    top: -3.25rem;
+    top: -3rem;
     right: 2.5rem;
     left: auto;
     bottom: auto;
